@@ -2,7 +2,6 @@ package de.beuth_hochschule.s797863.mywatchedmovies;
 
 /**
  * Created by tungtongduc on 19.01.16.
- * Film is a singleton Object. access with getInstance()
  */
 public class Film {
     int id;
@@ -18,7 +17,10 @@ public class Film {
     String award;
     String type;
     String imdbRating;
-    private Film film;
+    // 0 == false/ 1 == true
+    int isWatched;
+
+    public Film (){}
 
     public int getId() {
         return id;
@@ -70,6 +72,10 @@ public class Film {
 
     public String getImdbRating() {
         return imdbRating;
+    }
+
+    public int isWatched() {
+        return isWatched;
     }
 
     public void setId(int id) {
@@ -124,8 +130,32 @@ public class Film {
         this.imdbRating = imdbRating;
     }
 
-    public Film getInstance(){
-        return film;
+    public void setIsWatched(int isWatched) {
+        this.isWatched = isWatched;
+    }
+
+
+    /**
+     *
+     * @return a dummy Film for testing
+     */
+    public Film getDummyFilm(){
+
+        this.setTitle("One Day");
+        this.setIsWatched(1);
+        this.setType("series");
+        this.setImdbRating("12");
+        this.setActors("Donald Duck");
+        this.setAward("MTV Music Award");
+        this.setCountry("USA");
+        this.setDirector("Michael Bay");
+        this.setGenre("Action");
+        this.setLanguage("English");
+        this.setReleased("17 May 1978");
+        this.setRuntime("90 min");
+        this.setWriter("Victor Hugo");
+
+        return this;
     }
 
 }
